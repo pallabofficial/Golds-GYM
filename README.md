@@ -1,70 +1,140 @@
-# Getting Started with Create React App
+# AGE Fitness
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+click here to visit the live webpage👉👉 [https://pallabofficial.github.io/sun-studios/]<br><br>  
 
-## Available Scripts
 
-In the project directory, you can run:
+## About
 
-### `npm start`
+TakeNote is a note-taking app for the web. You can use the demo app at [takenote.dev](https://takenote.dev). It is a static site without a database and does not sync your notes to the cloud. The notes are persisted temporarily in local storage, but you can download all notes in markdown format as a zip.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Hidden within the code is an alternate version that contain a Node/Express server and integration with GitHub. This version involves creating an OAuth application for GitHub and signing up to it with private repository permissions. Instead of backing up to local storage, your notes will back up to a private repository in your account called `takenote-data`. Due to the following reasons I'm choosing not to deploy or maintain this portion of the application:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- I do not want to maintain a free app with users alongside my career and other commitments
+- I do not want to request private repository permissions from users
+- I do not want to maintain an active server
+- I do not want to worry about GitHub rate limiting from the server
+- There is no way to batch create many files from the GitHub API, leading to a suboptimal GitHub storage solution
 
-### `npm test`
+However, I'm leaving the code available so you can feel free to host your own TakeNote instance or study the code for learning purposes. I do not provide support or guidance for these purposes.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+TakeNote was created with TypeScript, React, Redux, Node, Express, Codemirror, Webpack, Jest, Cypress, Feather Icons, ESLint, and Mousetrap, among other awesome open-source software.<br><br> 
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Plain text notes** - take notes in an IDE-like environment that makes no assumptions
+- **Markdown preview** - view rendered HTML
+- **Linked notes** - use `{{uuid}}` syntax to link to notes within other notes
+- **Syntax highlighting** - light and dark mode available (based on the beautiful [New Moon theme](https://taniarascia.github.io/new-moon/))
+- **Keyboard shortcuts** - use the keyboard for all common tasks - creating notes and categories, toggling settings, and other options
+- **Drag and drop** - drag a note or multiple notes to categories, favorites, or trash
+- **Multi-cursor editing** - supports multiple cursors and other [Codemirror](https://codemirror.net/) options
+- **Search notes** - easily search all notes, or notes within a category
+- **Prettify notes** - use Prettier on the fly for your Markdown
+- **No WYSIWYG** - made for developers, by developers
+- **No database** - notes are only stored in the browser's local storage and are available for download and export to you alone
+- **No tracking or analytics** - 'nuff said
+- **GitHub integration** - self-hosted option is available for auto-syncing to a GitHub repository (not available in the demo)<br><br> 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Tech Stack
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Next.js
+- Three.js
+- Framer Motion
+- Tailwind CSS<br><br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Demo Development
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Clone and install.
 
-### Code Splitting
+```bash
+git clone git@github.com:taniarascia/takenote
+cd takenote
+npm i
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Run a development server.
 
-### Analyzing the Bundle Size
+```bash
+npm run client
+```
+<br><br> 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+### Pre-Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Before working on TakeNote locally, you must create a GitHub OAuth app for development.
 
-### Advanced Configuration
+Go to your GitHub profile settings, and click on **Developer Settings**.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Click the **New OAuth App** button.
 
-### Deployment
+- **Application name**: TakeNote Development
+- **Homepage URL**: `http://localhost:3000`
+- **Authorization callback URL**: `http://localhost:3000/api/auth/callback`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Create a `.env` file in the root of the project, and add the app's client ID and secret. Remove `DEMO` variable to enable GitHub integration.
 
-### `npm run build` fails to minify
+```bash
+CLIENT_ID=xxx
+CLIENT_SECRET=xxxx
+DEMO=true
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+> Change the URLs to port `5000` in production mode or Docker.<br><br> 
+
+### Installation
+
+```bash
+git clone git@github.com:taniarascia/takenote
+cd takenote
+npm i
+```
+
+#### Development mode
+
+In the development environment, an Express server is running on port `5000` to handle all API calls, and a hot Webpack dev server is running on port `3000` for the React frontend. To run both of these servers concurrently, run the `dev` command.
+
+```bash
+npm run dev
+```
+
+Go to `localhost:3000` to view the app.
+
+> API requests will be proxied to port `5000` automatically.<br><br> 
+
+#### Production mode
+
+In the production environment, the React app is built, and Express redirects all incoming requests to the `dist` directory on port `5000`.
+
+```bash
+npm run build && npm run start
+```
+
+Go to `localhost:5000` to view the app.<br><br> 
+
+
+## Contributing
+
+TakeNote is an open source project, and contributions of any kind are welcome and appreciated. Open issues, bugs, and feature requests are all listed on the [issues](https://github.com/taniarascia/takenote/issues) tab and labeled accordingly. Feel free to open bug tickets and make feature requests. Easy bugs and features will be tagged with the `good first issue` label.
+<br><br> 
+
+
+## Acknowledgements
+
+- AI tools (chatGPT, Gemini)
+- official documentations
+- online free tutorials<br><br> 
+
+## Author
+
+- Pallab Mondal<br><br> 
+
+## License
+
+This project is open source.
