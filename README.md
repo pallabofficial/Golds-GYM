@@ -1,6 +1,8 @@
 # AGE Fitness
 
-click here to visit the live webpage👉👉 [https://pallabofficial.github.io/sun-studios/]<br><br>  
+<strong>Project Status</strong>:- ongoing, not yet completed!
+
+click here to visit the live webpage👉👉 [https://alpha-fitness-mu.vercel.app/]<br><br>  
 
 
 ## About
