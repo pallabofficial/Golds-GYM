@@ -13,10 +13,6 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
       try {
         const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
 
-        // Log the response to check its structure
-        console.log('Body parts data:', bodyPartsData);
-
-        // Ensure bodyPartsData is an array before spreading it
         if (Array.isArray(bodyPartsData)) {
           setBodyParts(['all', ...bodyPartsData]);
         } else {
@@ -46,7 +42,8 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
         window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' });
 
         setSearch('');
-        setExercises(searchedExercises);
+        // Ensure searchedExercises is always an array
+        setExercises(Array.isArray(searchedExercises) ? searchedExercises : []);
       } catch (error) {
         console.error('Failed to fetch exercises data:', error);
       }
